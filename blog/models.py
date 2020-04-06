@@ -1,11 +1,12 @@
 from django.db import models
 from django.urls import reverse
+from users.models import CustomUser
 
 class Post(models.Model):
 
     title = models.CharField(max_length=200)
     author = models.ForeignKey(
-        'auth.User',
+        CustomUser,
         on_delete=models.CASCADE,
     )
     body = models.TextField()
